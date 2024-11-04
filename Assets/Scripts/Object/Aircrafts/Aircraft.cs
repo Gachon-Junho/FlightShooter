@@ -1,15 +1,32 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
-public abstract class Aircraft : MonoBehaviour
+public abstract class Aircraft : MonoBehaviour, IMovableObject
 {
-    public abstract string Name { get; }
-    public abstract double Speed { get; }
-    public abstract int HP { get; }
+    public string Name { get; private set; }
+    public float Speed { get; private set; }
+    public HitPoint HP { get; private set; }
 
-    public virtual void MoveTo(Vector3 newPosition, double duration = 0)
+    public IEnumerator CurrentTransformCoroutine { get; protected set; }
+
+    public virtual void Initialize(AircraftInfo info)
     {
-        
+        Name = info.Name;
+        Speed = info.Speed;
+        HP = info.HP;
     }
 
-    public void MoveToOffset(Vector3 offset, double duration = 0) => MoveTo(transform.position + offset, duration);
+    public virtual IEnumerator MoveTo(Vector3 newPosition, float speed)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, newPosition, speed * Time.deltaTime);
+
+        if (!transform.position.Equals(newPosition))
+        {
+            yield return new WaitForFixedUpdate();
+            CurrentTransformCoroutine = MoveTo(newPosition, speed);
+        }
+    }
+
+    public void MoveToOffset(Vector3 offset, float speed) => MoveTo(transform.position + offset, speed);
 }

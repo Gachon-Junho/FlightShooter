@@ -7,9 +7,9 @@ public class Projectile : MonoBehaviour, IPoolableGameObject
     public IObjectPool<GameObject> Pool { get; set; }
 
     public AttackableAircraft Owner;
-    public virtual double Speed { get; }
+    public virtual float Speed { get; }
 
-    protected void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         throw new NotImplementedException();
     }

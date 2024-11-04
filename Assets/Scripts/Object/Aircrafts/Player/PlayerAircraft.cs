@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerAircraft : MonoBehaviour
+public class PlayerAircraft : AttackableAircraft
 {
     
 }
