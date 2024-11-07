@@ -16,38 +16,12 @@ public class GameObjectPool<T> : MonoBehaviour, IGameObjectPool where T : Poolab
     private GameObject[] poolTarget;
 
     private List<T> pool = new List<T>();
-    private int currentPoolSize;
 
-    public int CurrentPoolSize
-    {
-        get => currentPoolSize;
-        private set
-        {
-            currentPoolSize = value;
-        }
-    }
+    public int CurrentPoolSize { get; private set; }
 
-    private int countInUse;
+    public int CountInUse { get; private set; }
 
-    public int CountInUse
-    {
-        get => countInUse;
-        private set
-        {
-            countInUse = value;
-        }
-    }
-
-    private int countExcessConstructed;
-
-    public int CountExcessConstructed
-    {
-        get => countExcessConstructed;
-        private set
-        {
-            countExcessConstructed = value;
-        }
-    }
+    public int CountExcessConstructed { get; private set; }
 
     public int CountAvailable => pool.Count;
 
@@ -119,7 +93,7 @@ public class GameObjectPool<T> : MonoBehaviour, IGameObjectPool where T : Poolab
         {
             obj = create(0);
 
-            if (maximumSize <= 0 || currentPoolSize < maximumSize)
+            if (maximumSize <= 0 || CurrentPoolSize < maximumSize)
             {
                 CurrentPoolSize++;
                 Debug.Assert(maximumSize <= 0 || CurrentPoolSize <= maximumSize);
@@ -152,7 +126,7 @@ public class GameObjectPool<T> : MonoBehaviour, IGameObjectPool where T : Poolab
         {
             obj = create(createIndexIfNotExists);
 
-            if (maximumSize <= 0 || currentPoolSize < maximumSize)
+            if (maximumSize <= 0 || CurrentPoolSize < maximumSize)
             {
                 CurrentPoolSize++;
                 Debug.Assert(maximumSize <= 0 || CurrentPoolSize <= maximumSize);
