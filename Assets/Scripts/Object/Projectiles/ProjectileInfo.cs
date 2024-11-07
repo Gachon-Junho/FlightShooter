@@ -6,7 +6,7 @@ namespace Object.Projectiles
     public class ProjectileInfo : ScriptableObject
     {
         public float Speed => speed;
-        public int Damage => damage;
+        public float Damage => damage;
         
         [SerializeField] 
         private float speed;

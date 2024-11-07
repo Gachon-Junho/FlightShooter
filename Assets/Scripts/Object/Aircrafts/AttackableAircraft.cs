@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class AttackableAircraft : Aircraft
@@ -7,9 +8,9 @@ public abstract class AttackableAircraft : Aircraft
     
     public double ShootInterval { get; private set; }
 
-    public override void Initialize(AircraftInfo info)
+    public override void Initialize(AircraftInfo info, StageData stage = null)
     {
-        base.Initialize(info);
+        base.Initialize(info, stage);
 
         var attackable = info as AttackableAircraftInfo;
         
@@ -17,10 +18,12 @@ public abstract class AttackableAircraft : Aircraft
 
         Projectile = attackable.Projectile;
         ShootInterval = attackable.ShootInterval;
+
+        if (stage != null)
+            Projectile.Damage *= stage.DamageWeight;
     }
 
     public virtual void Shoot()
     {
-        
     }
 }

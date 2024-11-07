@@ -28,6 +28,7 @@ public class GameObjectPool<T> : MonoBehaviour
         return go;
     }
     
+    // Todo: 재사용하기 전에 초기상태처럼 되돌려야 할 수 있음.
     private void onGetFromPool(GameObject poolGO) => poolGO.SetActive(true);
     
     private void onReleaseToPool(GameObject poolGO) => poolGO.SetActive(false);

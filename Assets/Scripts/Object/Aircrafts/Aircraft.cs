@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public abstract class Aircraft : MonoBehaviour, IMovableObject
+public abstract class Aircraft : MonoBehaviour, IMovableObject, IHasHitPoint
 {
     public string Name { get; private set; }
     public float Speed { get; private set; }
@@ -10,11 +10,11 @@ public abstract class Aircraft : MonoBehaviour, IMovableObject
 
     public IEnumerator CurrentTransformCoroutine { get; protected set; }
 
-    public virtual void Initialize(AircraftInfo info)
+    public virtual void Initialize(AircraftInfo info, StageData stage = null)
     {
         Name = info.Name;
         Speed = info.Speed;
-        HP = info.HP;
+        HP = stage == null ? info.HP : new HitPoint(info.HP.MaxHP * stage.HPWeight);
     }
 
     public virtual IEnumerator MoveTo(Vector3 newPosition, float speed)
@@ -28,5 +28,5 @@ public abstract class Aircraft : MonoBehaviour, IMovableObject
         }
     }
 
-    public void MoveToOffset(Vector3 offset, float speed) => MoveTo(transform.position + offset, speed);
+    public IEnumerator MoveToOffset(Vector3 offset, float speed) => MoveTo(transform.position + offset, speed);
 }
