@@ -5,8 +5,6 @@ using UnityEngine.Pool;
 
 public class Projectile : PoolableGameObject
 {
-    public IObjectPool<GameObject> Pool { get; set; }
-
     public AttackableAircraft Owner;
     public virtual float Speed { get; private set; }
     public float Damage { get; set; }
@@ -19,7 +17,13 @@ public class Projectile : PoolableGameObject
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
-        // Todo: IHasHitPoint를 가지고 있는 오브젝트인지 확인이 필요함. 태그로 확인하는 것도 가능하지만 지양해야할 것임.
-        throw new NotImplementedException();
+        IHasHitPoint obj = other.gameObject.GetComponent<IHasHitPoint>();
+        
+        if (obj == null)
+            return;
+        
+        obj.HP.DecreaseHP(Damage);
+        
+        Return();
     }
 }
