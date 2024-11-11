@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bee74ce0f7425ea7f0db748cfa982c, type: 3}
+  m_Name: AircraftContainer
+  m_EditorClassIdentifier: 
+  aircrafts:
+  - {fileID: 11400000, guid: 083fba93a7faa484fad1a9089bb8917e, type: 2}
+  - {fileID: 11400000, guid: 4ee87e422caa3824393416a4ca06b194, type: 2}
+  - {fileID: 11400000, guid: b47168941da52ec4f80eef248659709b, type: 2}
+  - {fileID: 11400000, guid: c3f4fd6c1b43b684e840558c8f0ba049, type: 2}

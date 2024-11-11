@@ -17,11 +17,16 @@ public class MainMenu : MonoBehaviour
     [SerializeField] 
     private Button start;
 
+    [SerializeField] 
+    private AircraftContainer playerAircrafts;
+
     private int aircraftIndex;
     private int stageIndex;
     
     void Awake()
     {
+        playerAircrafts.Aircrafts.ForEach(a => aircrafts.options.Add(new TMP_Dropdown.OptionData(a.Name)));
+        
         aircrafts.onValueChanged.AddListener(i => aircraftIndex = i);
         stageNumber.onEndEdit.AddListener(v =>
         {
@@ -33,31 +38,14 @@ public class MainMenu : MonoBehaviour
 
     private void loadScene()
     {
+        PlayerPrefs.SetString(nameof(aircraftIndex), aircrafts.options[aircraftIndex].text);
+        PlayerPrefs.SetInt(nameof(stageIndex), stageIndex);
         
+        this.LoadSceneAsync("GameplayScene");
     }
 
     void Update()
     {
         
     }
-    
-#if UNITY_EDITOR
-    [ContextMenu("findPlayerAircrafts")]
-    private void findPlayerAircrafts()
-    {
-        var aircrafts = new List<PlayerAircraft>();
-        string[] guids = AssetDatabase.FindAssets($"t:{typeof(PlayerAircraft)}");
-        
-        foreach (var guid in guids)
-        {
-            string assetPath = AssetDatabase.GUIDToAssetPath(guid);
-            var aircraft = AssetDatabase.LoadAssetAtPath<PlayerAircraft>(assetPath);
-
-            aircrafts.Add(aircraft);
-
-            EditorUtility.SetDirty(this);
-            AssetDatabase.SaveAssets();
-        }
-    }
-#endif
 }
