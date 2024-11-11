@@ -43,9 +43,4 @@ public class MainMenu : MonoBehaviour
         
         this.LoadSceneAsync("GameplayScene");
     }
-
-    void Update()
-    {
-        
-    }
 }
