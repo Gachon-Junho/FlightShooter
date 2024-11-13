@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 2747595212594134763}
   - component: {fileID: 1415444468786338233}
   m_Layer: 0
-  m_Name: WingFiringAircraft
+  m_Name: PlayerWingFiringAircraft
   m_TagString: Aircraft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

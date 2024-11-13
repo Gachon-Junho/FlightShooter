@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8093770452928631578}
   - component: {fileID: 1259961219109040870}
   m_Layer: 0
-  m_Name: CenterFiringAircraft
+  m_Name: PlayerCenterFiringAircraft
   m_TagString: Aircraft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

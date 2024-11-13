@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class MainMenuScene : MonoBehaviour
 {
     [SerializeField] 
     private TMP_Dropdown aircrafts;
@@ -22,6 +22,9 @@ public class MainMenu : MonoBehaviour
 
     private int aircraftIndex;
     private int stageIndex;
+
+    public const string PLAYER_AIRCRAFT = "PlayerAircraft";
+    public const string STAGE_INDEX = "StageIndex";
     
     void Awake()
     {
@@ -38,8 +41,8 @@ public class MainMenu : MonoBehaviour
 
     private void loadScene()
     {
-        PlayerPrefs.SetString(nameof(aircraftIndex), aircrafts.options[aircraftIndex].text);
-        PlayerPrefs.SetInt(nameof(stageIndex), stageIndex);
+        PlayerPrefs.SetString(PLAYER_AIRCRAFT, aircrafts.options[aircraftIndex].text);
+        PlayerPrefs.SetInt(STAGE_INDEX, stageIndex);
         
         this.LoadSceneAsync("GameplayScene");
     }

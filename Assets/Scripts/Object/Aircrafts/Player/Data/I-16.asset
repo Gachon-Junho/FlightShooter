@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 534dd837363a4cc1a68b3501a86341f5, type: 3}
-  m_Name: FW190
+  m_Name: I-16
   m_EditorClassIdentifier: 
-  aircraftName: FW 190
-  speed: 2
-  hp: 13
-  targetPrefab: {fileID: 1744403267181684695, guid: f58fd2feac029874eb2c6e635fbe67ff, type: 3}
+  aircraftName: I-16
+  speed: 1.4
+  hp: 5
+  targetPrefab: {fileID: 8421344409227402069, guid: 164b9545b87cc3c4d8e0f45462c53110, type: 3}
   projectile: {fileID: 0}
-  shootInterval: 0.75
+  shootInterval: 0.4
