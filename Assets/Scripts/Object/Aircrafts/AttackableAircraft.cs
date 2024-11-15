@@ -1,12 +1,14 @@
-using System;
 using UnityEngine;
 
 public abstract class AttackableAircraft : Aircraft
 {
     [SerializeField] 
-    protected Projectile Projectile;
+    protected ProjectileInfo ProjectileInfo;
     
     public double ShootInterval { get; private set; }
+
+    [SerializeField]
+    private ObjectSpawner[] ProjectileSpawnPoints;
 
     public override void Initialize(AircraftInfo info, StageData stage = null)
     {
@@ -16,14 +18,15 @@ public abstract class AttackableAircraft : Aircraft
         
         Debug.Assert(attackable != null);
 
-        Projectile = attackable.Projectile;
+        ProjectileInfo = attackable.ProjectileInfo;
         ShootInterval = attackable.ShootInterval;
-
-        if (stage != null)
-            Projectile.Damage *= stage.DamageWeight;
     }
 
     public virtual void Shoot()
     {
+        foreach (var spawner in ProjectileSpawnPoints)
+        {
+            spawner.SpawnObject();
+        }
     }
 }

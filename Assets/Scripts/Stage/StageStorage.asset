@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: StageStorage
   m_EditorClassIdentifier: 
   stageData:
-  - HPWeight: 0
-    DamageWeight: 0
+  - HPWeight: 1
+    DamageWeight: 1
     AircraftSetting: []
-  - HPWeight: 0
-    DamageWeight: 0
+  - HPWeight: 1
+    DamageWeight: 1
     AircraftSetting: []
-  - HPWeight: 0
-    DamageWeight: 0
+  - HPWeight: 1
+    DamageWeight: 1
     AircraftSetting: []
-  - HPWeight: 0
-    DamageWeight: 0
+  - HPWeight: 1
+    DamageWeight: 1
     AircraftSetting: []
-  - HPWeight: 0
-    DamageWeight: 0
+  - HPWeight: 1
+    DamageWeight: 1
     AircraftSetting: []
-  - HPWeight: 0
-    DamageWeight: 0
+  - HPWeight: 1
+    DamageWeight: 1
     AircraftSetting: []
   - HPWeight: 0
     DamageWeight: 0

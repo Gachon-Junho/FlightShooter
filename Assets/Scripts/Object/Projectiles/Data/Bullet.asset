@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.2
   damage: 8
+  targetPrefab: {fileID: 2040050922764075447, guid: f78c5b86b210022489dfbe983394e59c, type: 3}

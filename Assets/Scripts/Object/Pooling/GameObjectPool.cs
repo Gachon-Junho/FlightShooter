@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameObjectPool<T> : MonoBehaviour, IGameObjectPool where T : PoolableGameObject, new()
 {
@@ -25,29 +26,30 @@ public class GameObjectPool<T> : MonoBehaviour, IGameObjectPool where T : Poolab
 
     public int CountAvailable => pool.Count;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         if (initialSize > maximumSize)
             throw new ArgumentOutOfRangeException(nameof(initialSize), "Initial size must be less than or equal to maximum size.");
         
         for (int i = 0; i < initialSize; i++)
-            pool.Add(create(i / (initialSize / poolTarget.Length)));
+            pool.Add(create(poolTarget[i / (initialSize / poolTarget.Length)]));
 
         CurrentPoolSize = initialSize;
     }
 
-    private T create(int targetIndex)
+    private T create(GameObject targetPrefab = null)
     {
-        var o = CreateNewGameObject(targetIndex);
+        var o = CreateNewGameObject(targetPrefab);
         
         o.SetPool(this);
 
         return o;
     }
 
-    protected virtual T CreateNewGameObject(int targetIndex = 0)
+    protected virtual T CreateNewGameObject(GameObject targetPrefab = null)
     {
-        var o = Instantiate(poolTarget[targetIndex], transform, true);
+        var o = Instantiate(targetPrefab, transform, true);
+        
         o.SetActive(false);
         
         return o.GetComponent<T>();
@@ -91,7 +93,7 @@ public class GameObjectPool<T> : MonoBehaviour, IGameObjectPool where T : Poolab
         
         if ((obj = pool.LastOrDefault()) == null)
         {
-            obj = create(0);
+            obj = create(poolTarget[Random.Range(0, poolTarget.Length)]);
 
             if (maximumSize <= 0 || CurrentPoolSize < maximumSize)
             {
@@ -117,14 +119,14 @@ public class GameObjectPool<T> : MonoBehaviour, IGameObjectPool where T : Poolab
         return obj;
     }
 
-    public T Get<U>(Action<T> setupAction = null, int createIndexIfNotExists = 0)
+    public U Get<U>(Action<U> setupAction = null, GameObject createPrefabIfNotExists = null)
         where U : T
     {
-        var obj = pool.LastOrDefault(o => o.GetType() == typeof(U));
+        var obj = pool.LastOrDefault(o => o.GetType() == typeof(U)) as U;
 
         if (obj == null)
         {
-            obj = create(createIndexIfNotExists);
+            obj = create(createPrefabIfNotExists) as U;
 
             if (maximumSize <= 0 || CurrentPoolSize < maximumSize)
             {
@@ -132,15 +134,16 @@ public class GameObjectPool<T> : MonoBehaviour, IGameObjectPool where T : Poolab
                 Debug.Assert(maximumSize <= 0 || CurrentPoolSize <= maximumSize);
             }
             else
+            {
                 CountExcessConstructed++;
-
-            obj.gameObject.SetActive(true);
+            }
         }
         else
         {
             pool.Remove(obj);
         }
         
+        obj.gameObject.SetActive(true);
         CountInUse++;
 
         obj.Assign();

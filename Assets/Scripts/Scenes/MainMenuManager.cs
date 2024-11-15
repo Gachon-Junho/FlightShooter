@@ -1,12 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenuScene : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] 
     private TMP_Dropdown aircrafts;

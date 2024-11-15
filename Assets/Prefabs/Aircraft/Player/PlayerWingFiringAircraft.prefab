@@ -177,6 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4393126759511130264}
+  - component: {fileID: 5755097721139104891}
   m_Layer: 0
   m_Name: RightSpawnPoint
   m_TagString: Untagged
@@ -199,6 +200,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3756559495048653297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5755097721139104891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8033909492208906739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d658775f1be24cb38e18dedf731a1c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTarget: {fileID: 2040050922764075447, guid: f78c5b86b210022489dfbe983394e59c, type: 3}
+  projectileInfo: {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
 --- !u!1 &8217731228954957875
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +348,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c332ad3eceee5488d1e8dd30c40c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 0}
+  ProjectileInfo: {fileID: 0}
+  ProjectileSpawnPoints:
+  - {fileID: 4005683105585533573}
+  - {fileID: 5755097721139104891}
 --- !u!114 &1415444468786338233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1779066383038393377}
+  - component: {fileID: 4005683105585533573}
   m_Layer: 0
   m_Name: LeftSpawnPoint
   m_TagString: Untagged
@@ -427,3 +446,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3756559495048653297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4005683105585533573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440113984814381937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d658775f1be24cb38e18dedf731a1c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTarget: {fileID: 2040050922764075447, guid: f78c5b86b210022489dfbe983394e59c, type: 3}
+  projectileInfo: {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
