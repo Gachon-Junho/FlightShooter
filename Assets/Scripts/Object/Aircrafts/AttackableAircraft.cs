@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class AttackableAircraft : Aircraft
 {
     [SerializeField] 
-    protected ProjectileInfo ProjectileInfo;
+    protected ProjectileInfo[] ProjectileInfo;
     
     public double ShootInterval { get; private set; }
 
@@ -20,6 +20,11 @@ public abstract class AttackableAircraft : Aircraft
 
         ProjectileInfo = attackable.ProjectileInfo;
         ShootInterval = attackable.ShootInterval;
+
+        for (int i = 0; i < ProjectileSpawnPoints.Length; i++)
+        {
+            ProjectileSpawnPoints[i].SpawnTarget = ProjectileInfo[i].TargetPrefab;
+        }
     }
 
     public virtual void Shoot()

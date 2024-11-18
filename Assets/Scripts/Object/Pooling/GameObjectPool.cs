@@ -152,4 +152,37 @@ public class GameObjectPool<T> : MonoBehaviour, IGameObjectPool where T : Poolab
 
         return obj;
     }
+
+    public T Get(Func<T, bool> predicate, Action<T> setupAction = null, GameObject createPrefabIfNotExists = null)
+    {
+        var obj = pool.Where(predicate).FirstOrDefault();
+        
+        if (obj == null)
+        {
+            obj = create(createPrefabIfNotExists);
+
+            if (maximumSize <= 0 || CurrentPoolSize < maximumSize)
+            {
+                CurrentPoolSize++;
+                Debug.Assert(maximumSize <= 0 || CurrentPoolSize <= maximumSize);
+            }
+            else
+            {
+                CountExcessConstructed++;
+            }
+        }
+        else
+        {
+            pool.Remove(obj);
+        }
+        
+        obj.gameObject.SetActive(true);
+        CountInUse++;
+
+        obj.Assign();
+
+        setupAction?.Invoke(obj);
+
+        return obj;
+    }
 }

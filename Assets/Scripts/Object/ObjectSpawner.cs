@@ -1,11 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public abstract class ObjectSpawner : MonoBehaviour
 {
-    public GameObject SpawnTarget => spawnTarget;
-
     [SerializeField] 
-    private GameObject spawnTarget;
+    public GameObject SpawnTarget;
 
-    public abstract GameObject SpawnObject();
+    public abstract GameObject SpawnObject(Action<GameObject> setupAction = null);
 }

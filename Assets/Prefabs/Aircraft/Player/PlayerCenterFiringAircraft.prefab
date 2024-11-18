@@ -133,7 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c332ad3eceee5488d1e8dd30c40c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectileInfo: {fileID: 0}
+  ProjectileInfo:
+  - {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
   ProjectileSpawnPoints:
   - {fileID: 5901141817570556883}
 --- !u!114 &1259961219109040870
@@ -239,11 +240,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2982938816618310696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d658775f1be24cb38e18dedf731a1c6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f1181eb30e44365ae506d3bc70e12c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTarget: {fileID: 2040050922764075447, guid: f78c5b86b210022489dfbe983394e59c, type: 3}
-  projectileInfo: {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
+  SpawnTarget: {fileID: 0}
+  projectileInfo: {fileID: 0}
+  Direction: {x: -1, y: 0}
 --- !u!1 &7707032979975647007
 GameObject:
   m_ObjectHideFlags: 0
