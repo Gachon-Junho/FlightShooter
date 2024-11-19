@@ -4,10 +4,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Projectile", menuName = "Aircraft/Projectile Info")]
 public class ProjectileInfo : ScriptableObject, IEquatable<ProjectileInfo>
 {
+    public ProjectileType ProjectileType => projectileType;
     public float Speed => speed;
     public float Damage => damage;
 
     public GameObject TargetPrefab => targetPrefab;
+
+    [SerializeField] 
+    private ProjectileType projectileType;
     
     [SerializeField] 
     private float speed;
@@ -32,6 +36,7 @@ public class ProjectileInfo : ScriptableObject, IEquatable<ProjectileInfo>
 
         return Speed == other.Speed &&
                Damage == other.Damage &&
+               ProjectileType == other.ProjectileType &&
                TargetPrefab.Equals(targetPrefab);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projectile : PoolableGameObject, IMovableObject
 {
+    public virtual ProjectileType ProjectileType { get; }
     public AttackableAircraft Owner;
     public virtual float Speed { get; private set; }
     public float Damage { get; set; }

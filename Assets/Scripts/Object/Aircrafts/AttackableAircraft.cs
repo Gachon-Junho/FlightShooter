@@ -24,6 +24,7 @@ public abstract class AttackableAircraft : Aircraft
         for (int i = 0; i < ProjectileSpawnPoints.Length; i++)
         {
             ProjectileSpawnPoints[i].SpawnTarget = ProjectileInfo[i].TargetPrefab;
+            ((ProjectileSpawner)ProjectileSpawnPoints[i]).ProjectileInfo = ProjectileInfo[i];
         }
     }
 

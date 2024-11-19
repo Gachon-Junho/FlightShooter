@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class ProjectileSpawner : ObjectSpawner
 {
-    [SerializeField]
-    private ProjectileInfo projectileInfo;
+    public ProjectileInfo ProjectileInfo;
     
     private ProjectilePool projectilePool => ProjectilePool.Current;
 
@@ -12,7 +11,7 @@ public class ProjectileSpawner : ObjectSpawner
     
     public override GameObject SpawnObject(Action<GameObject> setupAction = null)
     {
-        var obj = projectilePool.Get(p => p.Speed == projectileInfo.Speed && p.Damage == projectileInfo.Damage,
+        var obj = projectilePool.Get(p => p.ProjectileType == ProjectileInfo.ProjectileType,
             setupPosition, SpawnTarget);
         
         setupAction?.Invoke(obj.gameObject);
@@ -22,7 +21,7 @@ public class ProjectileSpawner : ObjectSpawner
 
     private void setupPosition(Projectile projectile)
     {
-        projectile.Initialize(projectileInfo, Direction, projectileInfo.Speed, GameplayManager.Current.Stage);
+        projectile.Initialize(ProjectileInfo, Direction, ProjectileInfo.Speed, GameplayManager.Current.Stage);
         projectile.transform.position = transform.position;
     }
 }
