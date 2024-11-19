@@ -8,7 +8,7 @@ public abstract class AttackableAircraft : Aircraft
     public double ShootInterval { get; private set; }
 
     [SerializeField]
-    private ObjectSpawner[] ProjectileSpawnPoints;
+    private ProjectileSpawner[] ProjectileSpawnPoints;
 
     public override void Initialize(AircraftInfo info, StageData stage = null)
     {
@@ -24,7 +24,7 @@ public abstract class AttackableAircraft : Aircraft
         for (int i = 0; i < ProjectileSpawnPoints.Length; i++)
         {
             ProjectileSpawnPoints[i].SpawnTarget = ProjectileInfo[i].TargetPrefab;
-            ((ProjectileSpawner)ProjectileSpawnPoints[i]).ProjectileInfo = ProjectileInfo[i];
+            ProjectileSpawnPoints[i].ProjectileInfo = ProjectileInfo[i];
         }
     }
 
