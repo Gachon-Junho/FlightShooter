@@ -5,7 +5,7 @@ public abstract class AttackableAircraft : Aircraft
     [SerializeField] 
     protected ProjectileInfo[] ProjectileInfo;
     
-    public double ShootInterval { get; private set; }
+    public float ShootInterval { get; private set; }
 
     [SerializeField]
     private ProjectileSpawner[] ProjectileSpawnPoints;
@@ -23,9 +23,15 @@ public abstract class AttackableAircraft : Aircraft
 
         for (int i = 0; i < ProjectileSpawnPoints.Length; i++)
         {
-            ProjectileSpawnPoints[i].SpawnTarget = ProjectileInfo[i].TargetPrefab;
-            ProjectileSpawnPoints[i].ProjectileInfo = ProjectileInfo[i];
+            initializeSpawner(ProjectileSpawnPoints[i], ProjectileInfo[i]);
         }
+    }
+
+    protected virtual void initializeSpawner(ProjectileSpawner spawner, ProjectileInfo info)
+    {
+        spawner.SpawnTarget = info.TargetPrefab;
+        spawner.ProjectileInfo = info;
+        spawner.Owner = this;
     }
 
     public virtual void Shoot()

@@ -15,6 +15,7 @@ public class Projectile : PoolableGameObject, IMovableObject
     {
         Speed = info.Speed;
         Damage = info.Damage;
+        Direction = direction;
         
         if (stage != null)
              Damage *= stage.DamageWeight;
@@ -26,7 +27,12 @@ public class Projectile : PoolableGameObject, IMovableObject
 
         if (gameObject.activeSelf)
         {
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + (Vector3)Direction, Speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, transform.position + (Vector3)Direction.normalized, Speed * Time.deltaTime);
+
+            var cameraPos = Camera.main!.WorldToViewportPoint(transform.position);
+            
+            if (cameraPos.y > 1 || cameraPos.y < -1 || cameraPos.x > 1 || cameraPos.x < -1)
+                Return();
         }
     }
 

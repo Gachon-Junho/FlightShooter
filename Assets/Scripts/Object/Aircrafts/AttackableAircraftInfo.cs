@@ -4,11 +4,11 @@
 public class AttackableAircraftInfo : AircraftInfo
 {
     public ProjectileInfo[] ProjectileInfo => projectileInfo;
-    public double ShootInterval => shootInterval;
+    public float ShootInterval => shootInterval;
     
     [SerializeField] 
     private ProjectileInfo[] projectileInfo;
 
     [SerializeField]
-    private double shootInterval;
+    private float shootInterval;
 }
