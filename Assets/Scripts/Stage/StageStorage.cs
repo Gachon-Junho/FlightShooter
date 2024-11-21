@@ -18,6 +18,9 @@ public class StageData
     public float DamageWeight;
     public AircraftSetting[] AircraftSetting;
 
+    public float MinSpawnInterval;
+    public float MaxSpawnInterval;
+
     public bool IsCleared => AircraftSetting.Where(a => a.Amount != 0) == null;
 }
 

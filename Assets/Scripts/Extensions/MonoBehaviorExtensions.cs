@@ -16,4 +16,18 @@ public static class MonoBehaviorExtensions
                 yield return null;
         }
     }
+
+    public static Coroutine StartDelayedCoroutine(this MonoBehaviour mono, IEnumerator routine, float timeUntilStart)
+    {
+        var cor = mono.StartCoroutine(startDelayed());
+        
+        IEnumerator startDelayed()
+        {
+            yield return new WaitForSeconds(timeUntilStart);
+
+            cor = mono.StartCoroutine(routine);
+        }
+
+        return cor;
+    }
 }
