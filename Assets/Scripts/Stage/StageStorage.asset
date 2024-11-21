@@ -15,121 +15,205 @@ MonoBehaviour:
   stageData:
   - HPWeight: 1
     DamageWeight: 1
-    AircraftSetting: []
+    AircraftSetting:
+    - AircraftInfo: {fileID: 11400000, guid: 083fba93a7faa484fad1a9089bb8917e, type: 2}
+      Amount: 0
+    - AircraftInfo: {fileID: 11400000, guid: 4ee87e422caa3824393416a4ca06b194, type: 2}
+      Amount: 0
+    MinSpawnInterval: 3
+    MaxSpawnInterval: 6
   - HPWeight: 1
     DamageWeight: 1
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 1
     DamageWeight: 1
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 1
     DamageWeight: 1
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 1
     DamageWeight: 1
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 1
     DamageWeight: 1
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0
   - HPWeight: 0
     DamageWeight: 0
     AircraftSetting: []
+    MinSpawnInterval: 0
+    MaxSpawnInterval: 0

@@ -15,6 +15,7 @@ MonoBehaviour:
   aircraftName: BF 109
   speed: 2
   hp: 10
-  targetPrefab: {fileID: 1744403267181684695, guid: f58fd2feac029874eb2c6e635fbe67ff, type: 3}
-  projectile: {fileID: 0}
+  targetPrefab: {fileID: 1744403267181684695, guid: cf8ae69ad6640ea44b31bda53a314383, type: 3}
+  projectileInfo:
+  - {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
   shootInterval: 1
