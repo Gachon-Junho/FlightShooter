@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Projectile", menuName = "Aircraft/Projectile Info")]
-public class ProjectileInfo : ScriptableObject, IEquatable<ProjectileInfo>
+public class ProjectileInfo : ScriptableObject, IEquatable<ProjectileInfo>, IDeepCloneable<ProjectileInfo>
 {
     public ProjectileType ProjectileType => projectileType;
     public float Speed => speed;
@@ -17,12 +17,12 @@ public class ProjectileInfo : ScriptableObject, IEquatable<ProjectileInfo>
     private float speed;
     
     [SerializeField] 
-    private int damage;
+    private float damage;
 
     [SerializeField] 
     private GameObject targetPrefab;
 
-    public ProjectileInfo(float speed, int damage, GameObject targetPrefab)
+    public ProjectileInfo(float speed, float damage, GameObject targetPrefab)
     {
         this.speed = speed;
         this.damage = damage;
@@ -38,5 +38,18 @@ public class ProjectileInfo : ScriptableObject, IEquatable<ProjectileInfo>
                Damage == other.Damage &&
                ProjectileType == other.ProjectileType &&
                TargetPrefab.Equals(targetPrefab);
+    }
+
+    public ProjectileInfo(ProjectileType projectileType, float speed, float damage, GameObject targetPrefab)
+    {
+        this.projectileType = projectileType;
+        this.speed = speed;
+        this.damage = damage;
+        this.targetPrefab = targetPrefab;
+    }
+
+    public ProjectileInfo DeepClone()
+    {
+        return new ProjectileInfo(ProjectileType, Speed, Damage, TargetPrefab);
     }
 }

@@ -12,7 +12,7 @@ public class StageStorage : ScriptableObject
 }
 
 [Serializable]
-public class StageData
+public class StageData : IDeepCloneable<StageData>
 {
     public float HPWeight;
     public float DamageWeight;
@@ -22,11 +22,33 @@ public class StageData
     public float MaxSpawnInterval;
 
     public bool IsCleared => AircraftSetting.Where(a => a.Amount != 0) == null;
+    
+    public StageData DeepClone()
+    {
+        return new StageData
+        {
+            HPWeight = HPWeight,
+            DamageWeight = DamageWeight,
+            AircraftSetting = AircraftSetting.Select(a => a.DeepClone()).ToArray(),
+            MinSpawnInterval = MinSpawnInterval,
+            MaxSpawnInterval = MaxSpawnInterval
+        };
+    }
 }
 
 [Serializable]
- public class AircraftSetting
+ public class AircraftSetting : IDeepCloneable<AircraftSetting>
  {
      public AttackableAircraftInfo AircraftInfo;
      public int Amount;
+
+
+     public AircraftSetting DeepClone()
+     {
+         return new AircraftSetting
+         {
+             AircraftInfo = ((IDeepCloneable<AttackableAircraftInfo>)AircraftInfo).DeepClone(),
+             Amount = Amount
+         };
+     }
  }

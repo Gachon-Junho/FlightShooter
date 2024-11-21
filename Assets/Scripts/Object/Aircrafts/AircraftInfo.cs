@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class AircraftInfo : ScriptableObject
+public abstract class AircraftInfo : ScriptableObject, IDeepCloneable<AircraftInfo>
 {
     public string Name => aircraftName;
     public float Speed => speed;
@@ -15,10 +15,20 @@ public abstract class AircraftInfo : ScriptableObject
     private float speed;
     
     [SerializeField]
-    private int hp;
+    private float hp;
 
     [SerializeField] 
     private GameObject targetPrefab;
 
     private HitPoint hitPoint;
+
+    public AircraftInfo(string aircraftName, float speed, float hp, GameObject targetPrefab)
+    {
+        this.aircraftName = aircraftName;
+        this.speed = speed;
+        this.hp = hp;
+        this.targetPrefab = targetPrefab;
+    }
+
+    public abstract AircraftInfo DeepClone();
 }
