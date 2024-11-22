@@ -5,7 +5,12 @@ using UnityEngine.InputSystem;
 public class PlayerAircraft : AttackableAircraft
 {
     private Coroutine shootLoop;
-    
+
+    private void Start()
+    {
+        HP.OnDead += () => GameplayManager.Current.EndGame(GameplayManager.GameResultState.Fail);
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         MoveDirection = context.ReadValue<Vector2>();
@@ -23,7 +28,8 @@ public class PlayerAircraft : AttackableAircraft
     {
         base.initializeSpawner(spawner, info);
 
-        spawner.Direction = new Vector2(0, 1);
+        var dirVector = new Vector2(Mathf.Sin(transform.rotation.eulerAngles.z * Mathf.PI / 180), Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.PI / 180)).normalized;
+        spawner.Direction = dirVector;
     }
 
     private IEnumerator startShootLoop()

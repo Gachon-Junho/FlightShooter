@@ -21,18 +21,40 @@ public class StageData : IDeepCloneable<StageData>
     public float MinSpawnInterval;
     public float MaxSpawnInterval;
 
-    public bool IsCleared => AircraftSetting.Where(a => a.Amount != 0) == null;
+    public readonly int TotalAircraftCount;
+
+    public StageData(float hpWeight, float damageWeight, AircraftSetting[] aircraftSetting, float minSpawnInterval, float maxSpawnInterval)
+    {
+        HPWeight = hpWeight;
+        DamageWeight = damageWeight;
+        AircraftSetting = aircraftSetting;
+        MinSpawnInterval = minSpawnInterval;
+        MaxSpawnInterval = maxSpawnInterval;
+        
+        TotalAircraftCount  = AircraftSetting.Sum(a => a.Amount);
+    }
+
+    public int DownedAircraftCount
+    {
+        get => downedAircraftCount;
+        set
+        {
+            downedAircraftCount = value;
+            
+            if (IsCleared)
+                OnClear?.Invoke(this);
+        }
+    }
+
+    private int downedAircraftCount;
+
+    public bool IsCleared => DownedAircraftCount >= TotalAircraftCount;
+
+    public Action<StageData> OnClear;
     
     public StageData DeepClone()
     {
-        return new StageData
-        {
-            HPWeight = HPWeight,
-            DamageWeight = DamageWeight,
-            AircraftSetting = AircraftSetting.Select(a => a.DeepClone()).ToArray(),
-            MinSpawnInterval = MinSpawnInterval,
-            MaxSpawnInterval = MaxSpawnInterval
-        };
+        return new StageData(HPWeight, DamageWeight, AircraftSetting.Select(a => a.DeepClone()).ToArray(), MinSpawnInterval, MaxSpawnInterval);
     }
 }
 

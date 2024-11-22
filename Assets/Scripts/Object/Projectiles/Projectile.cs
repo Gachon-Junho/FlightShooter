@@ -45,7 +45,7 @@ public class Projectile : PoolableGameObject, IMovableObject
     {
         IHasHitPoint obj = other.gameObject.GetComponent<IHasHitPoint>();
         
-        if (obj == null)
+        if (obj == null || ReferenceEquals(Owner.HP, obj.HP))
             return;
         
         obj.HP.DecreaseHP(Damage);

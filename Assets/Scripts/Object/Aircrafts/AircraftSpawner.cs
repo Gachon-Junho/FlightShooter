@@ -7,13 +7,12 @@ public class AircraftSpawner : ObjectSpawner
 {
     public SpawnPointSetting[] SpawnPointSettings;
 
-    private StageData stage;
+    private StageData stage => GameplayManager.Current.Stage;
 
     private Coroutine currentCoroutine;
 
     private void Start()
     {
-        stage = GameplayManager.Current.Stage.DeepClone();
         currentCoroutine = this.StartDelayedCoroutine(startSpawnObjectLoop(), 1);
     }
 
@@ -26,11 +25,12 @@ public class AircraftSpawner : ObjectSpawner
             return null;
         
         var pos = new Vector2(Random.Range(SpawnPointSettings[spwnIdx].SpawnPoint.transform.position.x - SpawnPointSettings[spwnIdx].SpawnRange.x, SpawnPointSettings[spwnIdx].SpawnPoint.transform.position.x + SpawnPointSettings[spwnIdx].SpawnRange.x), Random.Range(SpawnPointSettings[spwnIdx].SpawnPoint.transform.position.y - SpawnPointSettings[spwnIdx].SpawnRange.y, SpawnPointSettings[spwnIdx].SpawnPoint.transform.position.y + SpawnPointSettings[spwnIdx].SpawnRange.y));
-        var obj = Instantiate(stage.AircraftSetting[index].AircraftInfo.TargetPrefab, pos, Quaternion.identity);
+        var aircraft = Instantiate(stage.AircraftSetting[index].AircraftInfo.TargetPrefab, pos, stage.AircraftSetting[index].AircraftInfo.TargetPrefab.transform.rotation).GetComponent<AttackableAircraft>();
         
+        aircraft.Initialize(stage.AircraftSetting[index].AircraftInfo, stage);
         stage.AircraftSetting[index].Amount--;
 
-        return obj;
+        return aircraft.gameObject;
     }
 
     private IEnumerator startSpawnObjectLoop()
