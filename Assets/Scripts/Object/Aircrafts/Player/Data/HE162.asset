@@ -15,6 +15,7 @@ MonoBehaviour:
   aircraftName: HE162
   speed: 4
   hp: 5
-  targetPrefab: {fileID: 8421344409227402069, guid: 164b9545b87cc3c4d8e0f45462c53110, type: 3}
-  projectile: {fileID: 0}
+  targetPrefab: {fileID: 1744403267181684695, guid: f4ff3ffcc19997c4a8eab1769a1d3d58, type: 3}
+  projectileInfo:
+  - {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
   shootInterval: 1

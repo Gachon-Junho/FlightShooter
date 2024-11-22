@@ -16,5 +16,7 @@ MonoBehaviour:
   speed: 1.4
   hp: 5
   targetPrefab: {fileID: 8421344409227402069, guid: 164b9545b87cc3c4d8e0f45462c53110, type: 3}
-  projectile: {fileID: 0}
+  projectileInfo:
+  - {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
+  - {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
   shootInterval: 0.4

@@ -15,7 +15,9 @@ MonoBehaviour:
   aircraftName: FW 190
   speed: 2
   hp: 13
-  targetPrefab: {fileID: 1744403267181684695, guid: cf8ae69ad6640ea44b31bda53a314383, type: 3}
+  targetPrefab: {fileID: 8421344409227402069, guid: 824977c9620e8674a8c4bf8e98ecef69, type: 3}
   projectileInfo:
+  - {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
+  - {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
   - {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
   shootInterval: 0.75
