@@ -310,7 +310,7 @@ MonoBehaviour:
   SpawnTarget: {fileID: 0}
   ProjectileInfo: {fileID: 0}
   Direction: {x: -1, y: 0}
-  Owner: {fileID: 0}
+  Owner: {fileID: 8093770452928631578}
 --- !u!1 &7707032979975647007
 GameObject:
   m_ObjectHideFlags: 0
