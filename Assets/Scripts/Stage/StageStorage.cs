@@ -59,7 +59,7 @@ public class StageData : IDeepCloneable<StageData>
 }
 
 [Serializable]
- public class AircraftSetting : IDeepCloneable<AircraftSetting>
+public class AircraftSetting : IDeepCloneable<AircraftSetting>
  {
      public AttackableAircraftInfo AircraftInfo;
      public int Amount;
