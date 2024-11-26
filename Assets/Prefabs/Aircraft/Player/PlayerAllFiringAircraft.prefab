@@ -406,6 +406,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
   ProjectileSpawnPoints:
   - {fileID: 4005683105585533573}
+  - {fileID: 3455708367525760048}
   - {fileID: 5755097721139104891}
 --- !u!114 &1415444468786338233
 MonoBehaviour:
