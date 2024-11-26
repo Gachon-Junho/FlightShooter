@@ -39,6 +39,9 @@ public class StageData : IDeepCloneable<StageData>
         get => downedAircraftCount;
         set
         {
+            if (IsCleared)
+                return;
+            
             downedAircraftCount = value;
             
             if (IsCleared)
