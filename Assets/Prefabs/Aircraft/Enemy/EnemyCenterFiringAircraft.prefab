@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileInfo: []
-  ProjectileSpawnPoints:
+  projectileSpawnPoints:
   - {fileID: 2904242527782633475}
 --- !u!58 &5121059072295814594
 CircleCollider2D:

@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 534dd837363a4cc1a68b3501a86341f5, type: 3}
-  m_Name: I-16
+  m_Name: ME262
   m_EditorClassIdentifier: 
-  aircraftName: I-16
-  speed: 1.5
-  hp: 15
-  targetPrefab: {fileID: 8421344409227402069, guid: 2bfaaca782386564ba9b6d7df991824b, type: 3}
+  aircraftName: ME 262
+  speed: 4.1
+  hp: 12
+  targetPrefab: {fileID: 8421344409227402069, guid: 3d3b1bee0b8e4b14984008194c33ee0e, type: 3}
   projectileInfo:
   - {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
   - {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
-  shootInterval: 0.4
+  - {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
+  shootInterval: 0.65

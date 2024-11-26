@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 534dd837363a4cc1a68b3501a86341f5, type: 3}
-  m_Name: I-16
+  m_Name: LaGG-3
   m_EditorClassIdentifier: 
-  aircraftName: I-16
-  speed: 1.5
+  aircraftName: LaGG-3
+  speed: 1
   hp: 15
-  targetPrefab: {fileID: 8421344409227402069, guid: 2bfaaca782386564ba9b6d7df991824b, type: 3}
+  targetPrefab: {fileID: 8421344409227402069, guid: 824977c9620e8674a8c4bf8e98ecef69, type: 3}
   projectileInfo:
-  - {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
-  - {fileID: 11400000, guid: 734e423433a778b41b374e5ee783a7b2, type: 2}
-  shootInterval: 0.4
+  - {fileID: 11400000, guid: fe4a4ccb736d1fa49addef07ba371199, type: 2}
+  - {fileID: 11400000, guid: 5dbd3e78611510e439c982c9501d12cf, type: 2}
+  - {fileID: 11400000, guid: fe4a4ccb736d1fa49addef07ba371199, type: 2}
+  shootInterval: 1.6

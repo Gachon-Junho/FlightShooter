@@ -47,7 +47,7 @@ MonoBehaviour:
   SpawnTarget: {fileID: 0}
   ProjectileInfo: {fileID: 0}
   Direction: {x: 0, y: -1}
-  Owner: {fileID: 8651797755232640437}
+  Owner: {fileID: 0}
 --- !u!1 &6240218337111775301
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +242,7 @@ Transform:
   m_GameObject: {fileID: 8033909492208906739}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0.175, z: 0}
+  m_LocalPosition: {x: 0.45, y: 0.175, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -263,7 +263,7 @@ MonoBehaviour:
   SpawnTarget: {fileID: 0}
   ProjectileInfo: {fileID: 0}
   Direction: {x: 0, y: -1}
-  Owner: {fileID: 8651797755232640437}
+  Owner: {fileID: 0}
 --- !u!1 &8217731228954957875
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,11 +357,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3756559495048653297}
-  - component: {fileID: 8651797755232640437}
+  - component: {fileID: 8572123149033245397}
+  - component: {fileID: -1340638544849992164}
   - component: {fileID: 5838532259253650611}
   - component: {fileID: 7358305980598936623}
   m_Layer: 0
-  m_Name: EnemyAllFiringAircraft
+  m_Name: PlayerWideAllFiringAircraft
   m_TagString: Aircraft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -375,7 +376,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8421344409227402069}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
@@ -387,8 +388,8 @@ Transform:
   - {fileID: 1405784715343661867}
   - {fileID: 4393126759511130264}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!114 &8651797755232640437
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8572123149033245397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -397,7 +398,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8421344409227402069}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf0226cfd8b21f64d8fe77fc5bd7de89, type: 3}
+  m_Script: {fileID: 11500000, guid: 00c332ad3eceee5488d1e8dd30c40c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileInfo: []
@@ -405,6 +406,68 @@ MonoBehaviour:
   - {fileID: 2935729780782624878}
   - {fileID: 4952717370485331517}
   - {fileID: 6221830008715634616}
+--- !u!114 &-1340638544849992164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8421344409227402069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 19307a655743b8447ae49dc8e3ecc7fe, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8572123149033245397}
+        m_TargetAssemblyTypeName: PlayerAircraft, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 89dceb70-0f3f-4060-acfe-f6e25596f6d9
+    m_ActionName: PlayerAircraft/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8572123149033245397}
+        m_TargetAssemblyTypeName: PlayerAircraft, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 19e311c7-cb17-4b92-8320-058febf87df7
+    m_ActionName: PlayerAircraft/Fire[/Keyboard/z]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerAircraft
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!58 &5838532259253650611
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -493,7 +556,7 @@ Transform:
   m_GameObject: {fileID: 8440113984814381937}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0.175, z: 0}
+  m_LocalPosition: {x: -0.45, y: 0.175, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -514,4 +577,4 @@ MonoBehaviour:
   SpawnTarget: {fileID: 0}
   ProjectileInfo: {fileID: 0}
   Direction: {x: 0, y: -1}
-  Owner: {fileID: 8651797755232640437}
+  Owner: {fileID: 0}

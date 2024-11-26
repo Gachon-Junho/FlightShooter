@@ -242,7 +242,7 @@ Transform:
   m_GameObject: {fileID: 8033909492208906739}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0.175, z: 0}
+  m_LocalPosition: {x: 0.45, y: 0.175, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 5838532259253650611}
   - component: {fileID: 7358305980598936623}
   m_Layer: 0
-  m_Name: EnemyAllFiringAircraft
+  m_Name: EnemyWideAllFiringAircraft
   m_TagString: Aircraft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,7 +493,7 @@ Transform:
   m_GameObject: {fileID: 8440113984814381937}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0.175, z: 0}
+  m_LocalPosition: {x: -0.45, y: 0.175, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

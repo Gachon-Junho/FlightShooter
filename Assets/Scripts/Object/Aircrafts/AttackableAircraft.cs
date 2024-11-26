@@ -7,8 +7,10 @@ public abstract class AttackableAircraft : Aircraft
     
     public float ShootInterval { get; private set; }
 
+    public ProjectileSpawner[] ProjectileSpawnPoints => projectileSpawnPoints;
+
     [SerializeField]
-    private ProjectileSpawner[] ProjectileSpawnPoints;
+    private ProjectileSpawner[] projectileSpawnPoints;
 
     public override void Initialize(AircraftInfo info, StageData stage = null)
     {

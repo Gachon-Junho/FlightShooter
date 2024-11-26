@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileInfo: []
-  ProjectileSpawnPoints:
+  projectileSpawnPoints:
   - {fileID: 1973807249151015879}
   - {fileID: 157892721079685424}
 --- !u!58 &5838532259253650611

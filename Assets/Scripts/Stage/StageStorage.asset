@@ -22,21 +22,43 @@ MonoBehaviour:
       Amount: 3
     MinSpawnInterval: 3
     MaxSpawnInterval: 5
-  - HPWeight: 1
-    DamageWeight: 1
-    AircraftSetting: []
-    MinSpawnInterval: 0
-    MaxSpawnInterval: 0
-  - HPWeight: 1
-    DamageWeight: 1
-    AircraftSetting: []
-    MinSpawnInterval: 0
-    MaxSpawnInterval: 0
-  - HPWeight: 1
-    DamageWeight: 1
-    AircraftSetting: []
-    MinSpawnInterval: 0
-    MaxSpawnInterval: 0
+  - HPWeight: 1.05
+    DamageWeight: 1.05
+    AircraftSetting:
+    - AircraftInfo: {fileID: 11400000, guid: 05b7d5f3932692f41bfdf945b2a19ef9, type: 2}
+      Amount: 2
+    - AircraftInfo: {fileID: 11400000, guid: 78b5a00c90a49bd4cb2ada2fa6757c46, type: 2}
+      Amount: 4
+    - AircraftInfo: {fileID: 11400000, guid: 4d07d870dcb176a43a901c55d2463be9, type: 2}
+      Amount: 2
+    MinSpawnInterval: 3
+    MaxSpawnInterval: 4
+  - HPWeight: 1.15
+    DamageWeight: 1.1
+    AircraftSetting:
+    - AircraftInfo: {fileID: 11400000, guid: 14c76381db051c94bb60fb86d1e18c0f, type: 2}
+      Amount: 3
+    - AircraftInfo: {fileID: 11400000, guid: 171f2649a9024a14c9e9baa8e51860b2, type: 2}
+      Amount: 1
+    - AircraftInfo: {fileID: 11400000, guid: da3f6e6d16babd8428d9e79af98b2703, type: 2}
+      Amount: 2
+    - AircraftInfo: {fileID: 11400000, guid: d9cd9403f593a7740acf15221e707198, type: 2}
+      Amount: 2
+    MinSpawnInterval: 3
+    MaxSpawnInterval: 3
+  - HPWeight: 1.15
+    DamageWeight: 1.2
+    AircraftSetting:
+    - AircraftInfo: {fileID: 11400000, guid: da3f6e6d16babd8428d9e79af98b2703, type: 2}
+      Amount: 2
+    - AircraftInfo: {fileID: 11400000, guid: b47168941da52ec4f80eef248659709b, type: 2}
+      Amount: 3
+    - AircraftInfo: {fileID: 11400000, guid: c3f4fd6c1b43b684e840558c8f0ba049, type: 2}
+      Amount: 3
+    - AircraftInfo: {fileID: 11400000, guid: 19cd817a40479194a979779cdd8543fa, type: 2}
+      Amount: 2
+    MinSpawnInterval: 3
+    MaxSpawnInterval: 4
   - HPWeight: 1
     DamageWeight: 1
     AircraftSetting: []

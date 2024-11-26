@@ -27,7 +27,7 @@ public class PlayerAircraft : AttackableAircraft
     private void onDead()
     {
         GameplayManager.Current.EndGame(GameplayManager.GameResultState.Fail);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     protected override void initializeSpawner(ProjectileSpawner spawner, ProjectileInfo info)
@@ -36,6 +36,22 @@ public class PlayerAircraft : AttackableAircraft
 
         var dirVector = new Vector2(Mathf.Sin(transform.rotation.eulerAngles.z * Mathf.Deg2Rad), Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad)).normalized;
         spawner.Direction = dirVector;
+    }
+
+    public override void Shoot()
+    {
+        foreach (var spawner in ProjectileSpawnPoints)
+        {
+            spawner.SpawnObject(go =>
+            {
+                var guidedMissile = go.GetComponent<GuidedMissile>();
+    
+                if (guidedMissile == null)
+                    return;
+    
+                guidedMissile.Target = null;
+            });
+        }
     }
 
     private IEnumerator startShootLoop()

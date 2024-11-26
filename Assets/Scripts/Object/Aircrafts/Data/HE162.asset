@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534dd837363a4cc1a68b3501a86341f5, type: 3}
   m_Name: HE162
   m_EditorClassIdentifier: 
-  aircraftName: HE162
+  aircraftName: HE 162
   speed: 4
   hp: 5
   targetPrefab: {fileID: 1744403267181684695, guid: cf8ae69ad6640ea44b31bda53a314383, type: 3}
