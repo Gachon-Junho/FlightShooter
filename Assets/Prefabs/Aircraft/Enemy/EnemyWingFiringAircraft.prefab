@@ -177,6 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4393126759511130264}
+  - component: {fileID: 157892721079685424}
   m_Layer: 0
   m_Name: RightSpawnPoint
   m_TagString: Untagged
@@ -199,6 +200,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3756559495048653297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &157892721079685424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8033909492208906739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1181eb30e44365ae506d3bc70e12c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnTarget: {fileID: 0}
+  ProjectileInfo: {fileID: 0}
+  Direction: {x: 0, y: -1}
+  Owner: {fileID: 8651797755232640437}
 --- !u!1 &8217731228954957875
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +352,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileInfo: []
-  ProjectileSpawnPoints: []
+  ProjectileSpawnPoints:
+  - {fileID: 1973807249151015879}
+  - {fileID: 157892721079685424}
 --- !u!58 &5838532259253650611
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -407,6 +426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1779066383038393377}
+  - component: {fileID: 1973807249151015879}
   m_Layer: 0
   m_Name: LeftSpawnPoint
   m_TagString: Untagged
@@ -429,3 +449,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3756559495048653297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1973807249151015879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440113984814381937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1181eb30e44365ae506d3bc70e12c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnTarget: {fileID: 0}
+  ProjectileInfo: {fileID: 0}
+  Direction: {x: 0, y: -1}
+  Owner: {fileID: 8651797755232640437}
