@@ -28,12 +28,16 @@ public class Projectile : PoolableGameObject, IMovableObject
         if (gameObject.activeSelf)
         {
             transform.position = Vector3.MoveTowards(transform.position, transform.position + (Vector3)Direction.normalized, Speed * Time.deltaTime);
-
-            var cameraPos = Camera.main!.WorldToViewportPoint(transform.position);
             
-            if (cameraPos.y > 1 || cameraPos.y < -1 || cameraPos.x > 1 || cameraPos.x < -1)
-                Return();
+            if (!this.IsVisibleInCamera(Camera.main))
+                onBecameInvisible();
         }
+    }
+
+    private void onBecameInvisible()
+    {
+        if (IsInUse)
+            Return();
     }
 
     public IEnumerator MoveTo(Vector3 direction, float speed)

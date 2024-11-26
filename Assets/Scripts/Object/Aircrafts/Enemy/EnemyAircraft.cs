@@ -5,7 +5,8 @@ public class EnemyAircraft : AttackableAircraft, IFollowingObject
 {
     private PlayerAircraft player => GameplayManager.Current.Player;
 
-    private Coroutine currentCoroutine;
+    private Coroutine followCoroutine;
+    private Coroutine shootCoroutine;
 
     private void Start()
     {
@@ -14,22 +15,32 @@ public class EnemyAircraft : AttackableAircraft, IFollowingObject
             GameplayManager.Current.Stage.DownedAircraftCount++;
             Destroy(gameObject);
         };
-    }
 
-    private void OnEnable() => currentCoroutine = StartCoroutine(follow());
+        StartCoroutine(this.CheckVisibility(Camera.main, 0.1f, () => onBecameVisible(), () => onBecameInvisible()));
+        
+        followCoroutine = StartCoroutine(follow());
+        shootCoroutine = StartCoroutine(startShootLoop());
+    }
 
     public void FollowTo(GameObject obj, float speed)
     {
-        var dirVector = new Vector2(Mathf.Sin(transform.rotation.eulerAngles.z * Mathf.PI / 180), Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.PI / 180));
+        var dirVector = new Vector2(Mathf.Sin(transform.rotation.eulerAngles.z * Mathf.Deg2Rad), Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad));
         var destination = new Vector3(obj.transform.position.x + dirVector.x, transform.position.y + dirVector.y, 0);
         
         transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
     }
 
-    private void OnBecameInvisible()
+    private void onBecameVisible()
     {
-        GameplayManager.Current.Stage.DownedAircraftCount++;
-        StopCoroutine(currentCoroutine);
+        shootCoroutine = StartCoroutine(startShootLoop());
+    }
+
+    private void onBecameInvisible()
+    {
+        StopCoroutine(followCoroutine);
+        StopCoroutine(shootCoroutine);
+        
+        HP.DecreaseHP(int.MaxValue);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -40,14 +51,27 @@ public class EnemyAircraft : AttackableAircraft, IFollowingObject
             return;
 
         player.HP.DecreaseHP(int.MaxValue);
+        HP.DecreaseHP(int.MaxValue);
     }
 
     private IEnumerator follow()
     {
-        FollowTo(player.gameObject, Speed);
+        if (player != null)
+        {
+            FollowTo(player.gameObject, Speed);
+    
+            yield return new WaitForFixedUpdate();
+            
+            followCoroutine = StartCoroutine(follow());
+        }
+    }
 
-        yield return new WaitForFixedUpdate();
+    private IEnumerator startShootLoop()
+    {
+        Shoot();
 
-        currentCoroutine = StartCoroutine(follow());
+        yield return new WaitForSeconds(ShootInterval);
+
+        shootCoroutine = StartCoroutine(startShootLoop());
     }
 }

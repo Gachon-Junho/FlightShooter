@@ -8,7 +8,7 @@ public class PlayerAircraft : AttackableAircraft
 
     private void Start()
     {
-        HP.OnDead += () => GameplayManager.Current.EndGame(GameplayManager.GameResultState.Fail);
+        HP.OnDead += () => onDead();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -24,11 +24,17 @@ public class PlayerAircraft : AttackableAircraft
             StopCoroutine(shootLoop);
     }
 
+    private void onDead()
+    {
+        GameplayManager.Current.EndGame(GameplayManager.GameResultState.Fail);
+        Destroy(gameObject);
+    }
+
     protected override void initializeSpawner(ProjectileSpawner spawner, ProjectileInfo info)
     {
         base.initializeSpawner(spawner, info);
 
-        var dirVector = new Vector2(Mathf.Sin(transform.rotation.eulerAngles.z * Mathf.PI / 180), Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.PI / 180)).normalized;
+        var dirVector = new Vector2(Mathf.Sin(transform.rotation.eulerAngles.z * Mathf.Deg2Rad), Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad)).normalized;
         spawner.Direction = dirVector;
     }
 

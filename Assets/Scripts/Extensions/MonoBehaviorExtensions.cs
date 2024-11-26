@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,5 +30,36 @@ public static class MonoBehaviorExtensions
         }
 
         return cor;
+    }
+
+    public static bool IsVisibleInCamera(this MonoBehaviour mono, Camera camera, float boundOffset = 0)
+    {
+        var cameraPos = camera.WorldToViewportPoint(mono.transform.position);
+
+        if (cameraPos.y > 1 + boundOffset || cameraPos.y < 0 - boundOffset || cameraPos.x > 1 + boundOffset || cameraPos.x < 0 - boundOffset)
+            return false;
+
+        return true;
+    }
+
+    public static IEnumerator CheckVisibility(this MonoBehaviour mono, Camera camera, float boundOffset = 0, Action onBecameVisible = null, Action onBecameInvisible = null)
+    {
+        var isVisible = mono.IsVisibleInCamera(camera, boundOffset);
+        var lastVisibility = isVisible;
+
+        while (true)
+        {
+            isVisible = mono.IsVisibleInCamera(camera, boundOffset);
+
+            if (lastVisibility != isVisible)
+            {
+                if (isVisible) onBecameVisible?.Invoke();
+                else onBecameInvisible?.Invoke();
+            }
+
+            lastVisibility = isVisible;
+            
+            yield return null;
+        }
     }
 }
