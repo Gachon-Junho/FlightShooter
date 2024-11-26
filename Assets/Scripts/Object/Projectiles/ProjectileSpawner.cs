@@ -12,8 +12,7 @@ public class ProjectileSpawner : ObjectSpawner
     
     public override GameObject SpawnObject(Action<GameObject> setupAction = null)
     {
-        var obj = projectilePool.Get(p => p.ProjectileType == ProjectileInfo.ProjectileType,
-            setup, SpawnTarget);
+        var obj = projectilePool.Get(p => p.ProjectileType == ProjectileInfo.ProjectileType, setup, SpawnTarget);
         
         setupAction?.Invoke(obj.gameObject);
 

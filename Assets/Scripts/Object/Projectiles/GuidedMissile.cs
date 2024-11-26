@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GuidedMissile : Projectile, IFollowingObject
@@ -6,7 +7,14 @@ public class GuidedMissile : Projectile, IFollowingObject
 
     public const float TRACK_SPEED = 3f;
 
+    public GameObject Target;
+
     private Vector3 moveDirection;
+
+    private void Start()
+    {
+        Target = GameplayManager.Current.Player.gameObject;
+    }
 
     protected override void Update()
     {
@@ -14,16 +22,33 @@ public class GuidedMissile : Projectile, IFollowingObject
 
         if (gameObject.activeSelf)
         {
-            FollowTo(GameplayManager.Current.Player.gameObject, Speed);
+            FollowTo(Target, Speed);
         }
     }
 
     public void FollowTo(GameObject obj, float speed)
     {
-        var dir = (obj.transform.position - transform.position).normalized;
-        moveDirection = Vector3.RotateTowards(transform.forward, dir, TRACK_SPEED * Time.deltaTime, 0);
+        if (obj == null)
+        {
+            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Aircraft");
+            float shortestDistance = Mathf.Infinity;
+            
+            foreach (var aircraft in taggedObjects)
+            {
+                float distance = Vector3.Distance(transform.position, aircraft.transform.position);
+                
+                if (distance < shortestDistance)
+                {
+                    shortestDistance = distance;
+                    obj = Target = aircraft;
+                }
+            }
+        }
+        
+        var dir = (obj?.transform.position - transform.position)?.normalized;
+        moveDirection = Vector3.RotateTowards(transform.forward, dir ?? Direction, TRACK_SPEED * Time.deltaTime, 0);
 
-        transform.rotation = Quaternion.LookRotation(moveDirection);
+        transform.rotation = Quaternion.Euler(0, 0, Quaternion.LookRotation(moveDirection).z);
         transform.position += transform.forward * (speed * Time.deltaTime);
     }
 }
