@@ -21,6 +21,22 @@ public class EnemyAircraft : AttackableAircraft, IFollowingObject
         followCoroutine = StartCoroutine(follow());
         shootCoroutine = StartCoroutine(startShootLoop());
     }
+    
+    public override void Shoot()
+    {
+        foreach (var spawner in ProjectileSpawnPoints)
+        {
+            spawner.SpawnObject(go =>
+            {
+                var guidedMissile = go.GetComponent<GuidedMissile>();
+    
+                if (guidedMissile == null)
+                    return;
+    
+                guidedMissile.Target = GameplayManager.Current.Player.gameObject;
+            });
+        }
+    }
 
     public void FollowTo(GameObject obj, float speed)
     {

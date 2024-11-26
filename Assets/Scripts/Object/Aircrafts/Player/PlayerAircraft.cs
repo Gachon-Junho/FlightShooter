@@ -38,22 +38,6 @@ public class PlayerAircraft : AttackableAircraft
         spawner.Direction = dirVector;
     }
 
-    public override void Shoot()
-    {
-        foreach (var spawner in ProjectileSpawnPoints)
-        {
-            spawner.SpawnObject(go =>
-            {
-                var guidedMissile = go.GetComponent<GuidedMissile>();
-    
-                if (guidedMissile == null)
-                    return;
-    
-                guidedMissile.Target = null;
-            });
-        }
-    }
-
     private IEnumerator startShootLoop()
     {
         Shoot();
