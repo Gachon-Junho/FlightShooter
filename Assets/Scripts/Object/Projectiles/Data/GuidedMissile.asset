@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be173d2859bc46f0a9b39c71476ff8bc, type: 3}
   m_Name: GuidedMissile
   m_EditorClassIdentifier: 
+  projectileType: 2
   speed: 0.9
   damage: 40
   targetPrefab: {fileID: 4385059051716246631, guid: e7f426a7fa9776743b4d4e4cee2e6d87, type: 3}

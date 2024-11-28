@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be173d2859bc46f0a9b39c71476ff8bc, type: 3}
   m_Name: Missile
   m_EditorClassIdentifier: 
+  projectileType: 1
   speed: 0.9
   damage: 40
   targetPrefab: {fileID: 8899036150880818955, guid: 1f474ac7b97c25446bd9c0500b5494c5, type: 3}
