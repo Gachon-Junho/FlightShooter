@@ -1,4 +1,7 @@
-﻿public class ProjectilePool : GameObjectPool<Projectile>, ISingleton<ProjectilePool>
+﻿/// <summary>
+/// 발사체를 풀링하는 오브젝트 풀입니다.
+/// </summary>
+public class ProjectilePool : GameObjectPool<Projectile>, ISingleton<ProjectilePool>
 {
     public static ProjectilePool Current
     {

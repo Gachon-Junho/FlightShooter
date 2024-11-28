@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class GuidedMissile : Projectile, IFollowingObject
@@ -13,6 +12,7 @@ public class GuidedMissile : Projectile, IFollowingObject
     {
         base.Update();
 
+        // 오브젝트가 활성화 되어있을 때만 추적
         if (gameObject.activeSelf)
         {
             FollowTo(Target, Speed);
@@ -23,24 +23,11 @@ public class GuidedMissile : Projectile, IFollowingObject
     {
         var dir = Direction;
         
+        // 목표가 없으면 플레이어를 제외한 가장 가까운 기체로 설정.
         if (obj == null)
         {
-            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Aircraft");
-            float shortestDistance = Mathf.Infinity;
-            
-            foreach (var aircraft in taggedObjects)
-            {
-                if (aircraft.GetComponent<PlayerAircraft>() != null) continue;
-                
-                float distance = Vector3.Distance(transform.position, aircraft.transform.position);
-                
-                if (distance < shortestDistance)
-                {
-                    shortestDistance = distance;
-                    obj = Target = aircraft;
-                    dir = (obj.transform.position - transform.position).normalized;
-                }
-            }
+            if ((obj = findNearestAircraft()) != null)
+                dir = (obj.transform.position - transform.position).normalized;
         }
         
         float angle = Vector2.Angle(transform.up, dir);
@@ -54,5 +41,27 @@ public class GuidedMissile : Projectile, IFollowingObject
         }
         
         transform.position += transform.up * (speed * Time.deltaTime);
+    }
+
+    private GameObject findNearestAircraft()
+    {
+        GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Aircraft");
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestObj = null;
+
+        foreach (var aircraft in taggedObjects)
+        {
+            if (aircraft.GetComponent<PlayerAircraft>() != null) continue;
+
+            float distance = Vector3.Distance(transform.position, aircraft.transform.position);
+
+            if (distance < shortestDistance)
+            {
+                shortestDistance = distance;
+                nearestObj = aircraft;
+            }
+        }
+
+        return nearestObj;
     }
 }

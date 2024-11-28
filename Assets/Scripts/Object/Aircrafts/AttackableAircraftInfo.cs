@@ -2,6 +2,10 @@
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// 공격 가능한 기체의 정보를 담는 요소입니다.
+/// 공격에 관한 필수적인 속성을 포함하고 있습니다.
+/// </summary>
 [CreateAssetMenu(fileName = "AircraftName", menuName = "Aircraft/Attackable Aircraft Info")]
 public class AttackableAircraftInfo : AircraftInfo, IDeepCloneable<AttackableAircraftInfo>
 {

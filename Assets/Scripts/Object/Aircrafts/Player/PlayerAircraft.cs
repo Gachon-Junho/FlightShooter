@@ -38,6 +38,12 @@ public class PlayerAircraft : AttackableAircraft
         spawner.Direction = dirVector;
     }
 
+    /// <summary>
+    /// 발사체 발사 루프를 시작합니다.
+    /// </summary>
+    /// <remarks>
+    /// 루프를 중단하기 위해 코루틴을 사용해 중지해야합니다.
+    /// </remarks>
     private IEnumerator startShootLoop()
     {
         Shoot();

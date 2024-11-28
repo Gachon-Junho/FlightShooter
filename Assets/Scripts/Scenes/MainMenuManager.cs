@@ -25,6 +25,7 @@ public class MainMenuManager : MonoBehaviour
     
     void Awake()
     {
+        // 플레이어가 사용가능한 기체를 드롭다운에 추가
         playerAircrafts.Aircrafts.ForEach(a => aircrafts.options.Add(new TMP_Dropdown.OptionData(a.Name)));
         
         aircrafts.onValueChanged.AddListener(i => aircraftIndex = i);

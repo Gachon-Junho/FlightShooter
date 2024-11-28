@@ -1,6 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
+/// <summary>
+/// 발사체에 대한 정보를 담는 요소입니다.
+/// 발사체의 유형과 가져야 할 여러 값을 포함하고 있습니다.
+/// </summary>
 [CreateAssetMenu(fileName = "Projectile", menuName = "Aircraft/Projectile Info")]
 public class ProjectileInfo : ScriptableObject, IEquatable<ProjectileInfo>, IDeepCloneable<ProjectileInfo>
 {

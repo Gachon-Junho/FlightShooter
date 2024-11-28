@@ -7,6 +7,9 @@ public abstract class AttackableAircraft : Aircraft
     
     public float ShootInterval { get; private set; }
 
+    /// <summary>
+    /// 공격 가능한 기체의 발사체 발사 지점들.
+    /// </summary>
     public ProjectileSpawner[] ProjectileSpawnPoints => projectileSpawnPoints;
 
     [SerializeField]

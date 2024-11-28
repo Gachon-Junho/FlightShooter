@@ -16,6 +16,7 @@ public class EnemyAircraft : AttackableAircraft, IFollowingObject
             Destroy(gameObject);
         };
 
+        // 이 기체의 메인 카메라부터의 가시성 여부를 판단해 처리합니다.
         StartCoroutine(this.CheckVisibility(Camera.main, 0.1f, () => onBecameVisible(), () => onBecameInvisible()));
         
         followCoroutine = StartCoroutine(follow());
@@ -33,6 +34,7 @@ public class EnemyAircraft : AttackableAircraft, IFollowingObject
                 if (guidedMissile == null)
                     return;
     
+                // 적 기체의 목표는 오직 플레이어 뿐입니다.
                 guidedMissile.Target = GameplayManager.Current.Player.gameObject;
             });
         }
@@ -45,14 +47,17 @@ public class EnemyAircraft : AttackableAircraft, IFollowingObject
         
         transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
     }
-
+    
     private void onBecameVisible()
     {
+        // 화면 안에 보이기 시작하면 발사 루프를 시작합니다.
         shootCoroutine = StartCoroutine(startShootLoop());
     }
 
     private void onBecameInvisible()
     {
+        // 더이상 보이지 않게되면 사망한 것으로 처리힙니다.
+        
         StopCoroutine(followCoroutine);
         StopCoroutine(shootCoroutine);
         
@@ -61,6 +66,7 @@ public class EnemyAircraft : AttackableAircraft, IFollowingObject
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        // 카미카제 구현.
         var player = other.gameObject.GetComponent<PlayerAircraft>();
             
         if (player == null)
@@ -76,7 +82,7 @@ public class EnemyAircraft : AttackableAircraft, IFollowingObject
         {
             FollowTo(player.gameObject, Speed);
     
-            yield return new WaitForFixedUpdate();
+            yield return null;
             
             followCoroutine = StartCoroutine(follow());
         }

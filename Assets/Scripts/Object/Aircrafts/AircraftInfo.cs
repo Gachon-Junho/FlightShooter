@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// 기체의 정보를 담는 요소입니다.
+/// 기체에 관한 필수적인 속성을 포함하고 있습니다.
+/// </summary>
 public abstract class AircraftInfo : ScriptableObject, IDeepCloneable<AircraftInfo>
 {
     public string Name => aircraftName;

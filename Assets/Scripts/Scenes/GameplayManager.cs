@@ -33,6 +33,7 @@ public class GameplayManager : Singleton<GameplayManager>
         
         var aircraft = playerAircrafts.Aircrafts.FirstOrDefault(a => a.Name == aircraftName)!;
         
+        // 깊은 복사를 통해 원본이 변경되는 것을 막음
         Stage = stages.StageData[stageIndex].DeepClone();
         Stage.OnClear += _ => EndGame(GameResultState.Success);
 
@@ -44,6 +45,7 @@ public class GameplayManager : Singleton<GameplayManager>
 
     private void initializeUI()
     {
+        // 플레이어가 사용가능한 기체를 드롭다운에 추가
         playerAircrafts.Aircrafts.ForEach(a => aircrafts.options.Add(new TMP_Dropdown.OptionData(a.Name)));
                 
         aircrafts.onValueChanged.AddListener(i => aircraftIndex = i);

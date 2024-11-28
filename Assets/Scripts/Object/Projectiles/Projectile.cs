@@ -29,11 +29,12 @@ public class Projectile : PoolableGameObject, IMovableObject
         {
             transform.position = Vector3.MoveTowards(transform.position, transform.position + (Vector3)Direction.normalized, Speed * Time.deltaTime);
             
+            // 카메라에 자기자신이 있는지 확인 후 반환여부 결정
             if (!this.IsVisibleInCamera(Camera.main))
                 onBecameInvisible();
         }
     }
-
+    
     private void onBecameInvisible()
     {
         if (IsInUse)
@@ -47,8 +48,10 @@ public class Projectile : PoolableGameObject, IMovableObject
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
+        // 충돌한 오브젝트가 HP를 가지고 있는 오브젝트인지 확인
         IHasHitPoint obj = other.gameObject.GetComponent<IHasHitPoint>();
         
+        // HP 요소가 없거나 자기자신인 경우는 건너뜀
         if (obj == null || ReferenceEquals(Owner.HP, obj.HP))
             return;
         
