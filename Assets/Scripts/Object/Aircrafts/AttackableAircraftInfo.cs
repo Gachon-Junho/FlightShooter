@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -25,10 +24,7 @@ public class AttackableAircraftInfo : AircraftInfo, IDeepCloneable<AttackableAir
         this.shootInterval = shootInterval;
     }
 
-    public override AircraftInfo DeepClone()
-    {
-        throw new NotImplementedException();
-    }
+    public override AircraftInfo DeepClone() => ((IDeepCloneable<AttackableAircraftInfo>)this).DeepClone();
 
     AttackableAircraftInfo IDeepCloneable<AttackableAircraftInfo>.DeepClone()
     {
